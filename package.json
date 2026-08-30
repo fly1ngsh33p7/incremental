@@ -1,0 +1,19 @@
+{
+  "name": "incremental",
+  "version": "0.1.0",
+  "description": "An Incremental Game about Asteroids",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fly1ngsh33p7/incremental.git"
+  },
+  "author": "Lara Klaus",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/fly1ngsh33p7/incremental/issues"
+  },
+  "homepage": "https://github.com/fly1ngsh33p7/incremental#readme"
+}
