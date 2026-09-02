@@ -21,3 +21,29 @@ npm run build
 ```
 npm run lint
 ```
+
+# Vue Boilerplates
+## Component
+```vue
+<template>
+    Component
+</template>
+
+<script>
+export default {
+  name: "Component",
+  mounted() {
+    // run on mount
+  },
+  components: {
+    // OtherComponent, // used components
+  },
+};
+</script>
+
+<style scoped>
+#component {
+    /* css */
+}
+</style>
+```

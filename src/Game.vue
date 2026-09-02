@@ -1,21 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    Game
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <UniverseCanvas />
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import UniverseCanvas from './components/UniverseCanvas.vue'
+import { init } from "@/game";
 
 export default {
-  name: 'App',
+  // eslint-disable-next-line
+  name: "Game",
+  mounted() {
+    init();
+  },
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+    UniverseCanvas,
+  },
+};
 </script>
 
 <style>
-#app {
+#game {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
