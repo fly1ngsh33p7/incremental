@@ -34,6 +34,7 @@ export default {
   name: "Component",
   mounted() {
     // run on mount
+    //afunction();
   },
   components: {
     // OtherComponent, // used components

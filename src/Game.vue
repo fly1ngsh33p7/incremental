@@ -1,12 +1,12 @@
 <template>
-    Game
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <i>incremental</i>
     <UniverseCanvas />
+    <UI />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import UniverseCanvas from './components/UniverseCanvas.vue'
+import UI from './components/UI.vue';
+import UniverseCanvas from './components/canvas/UniverseCanvas.vue';
 import { init } from "@/game";
 
 export default {
@@ -16,13 +16,14 @@ export default {
     init();
   },
   components: {
-    HelloWorld,
     UniverseCanvas,
+    UI,
   },
 };
 </script>
 
 <style>
+/* Root div for the game/website */
 #game {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,5 +31,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.container {
+  border: 1px solid #000;
+  border-radius: 6px;
+  margin: 8px;
 }
 </style>
