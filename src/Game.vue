@@ -1,0 +1,51 @@
+<template>
+    <div class="heading">Game</div>
+    <ResourceManagerGroup />
+</template>
+
+<script lang="ts">
+    import ResourceManagerGroup from './components/ResourceManagerGroup.vue';
+
+    export default {
+        name: 'Component',
+        mounted() {
+            // run on mount
+            //afunction();
+        },
+        components: {
+            // OtherComponent, // used components
+            ResourceManagerGroup,
+        },
+    };
+</script>
+
+<style>
+    @import './assets/base.css';
+
+    /* Root div for the game/website */
+    #game {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+
+    .container {
+        border: 1px solid #000;
+        border-radius: 6px;
+        margin: 8px;
+    }
+
+    .heading {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    @media (hover: hover) {
+        a:hover {
+            background-color: hsla(160, 100%, 37%, 0.2);
+        }
+    }
+</style>
