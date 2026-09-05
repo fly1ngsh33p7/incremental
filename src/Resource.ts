@@ -1,22 +1,29 @@
-export type CostFunction = (initialCost: number, amount: number) => number;
+export type CostFunction = (
+    initialCost: number,
+    amount: number,
+) => number;
 
 export class Resource {
     name: string;
     amount: number = 0;
     initialCost: number;
+    isUnlocked: boolean;
 
     // Costs
-    private costFunction: CostFunction;
+    costFunction: CostFunction;
 
     constructor(
         name: string,
         amount: number,
         initialCost: number,
-        costFunction: CostFunction = (initialCost, amount) => Math.round(initialCost * Math.pow(2, amount)), // Default: double the cost for each additional unit
+        isUnlocked: boolean,
+        costFunction: CostFunction = (initialCost, amount) =>
+            Math.round(initialCost * Math.pow(2, amount)), // Default: double the cost for each additional unit
     ) {
         this.name = name;
         this.amount = amount;
         this.initialCost = initialCost;
+        this.isUnlocked = isUnlocked;
         this.costFunction = costFunction;
     }
 
@@ -40,10 +47,6 @@ export class Resource {
         // This is a bit tricky since the formula is now arbitrary.
         // You could return a string representation of the function or a description.
         return `Custom cost function: ${this.costFunction.toString()}`;
-    }
-
-    isUnlocked(): boolean {
-        return this.amount > 0;
     }
 
     toString(): string {
