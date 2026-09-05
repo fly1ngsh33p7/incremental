@@ -25,8 +25,7 @@ export class Resource {
         // FIXME: this triggers a cost increase - should it?
         this.amount += amount;
 
-        const cost = this.costFunction(this.initialCost, this.amount);
-        console.log(`Added ${amount} to ${this.name}, amount now: ${this.amount}, current cost now: ${cost}`);
+        console.log(this.toString());
     }
 
     decreaseAmount(amount: number): void {
@@ -48,6 +47,6 @@ export class Resource {
     }
 
     toString(): string {
-        return `Resource: {${this.name} Amount: ${this.amount}, Initial Cost: ${this.initialCost}, Current Cost: ${this.getCurrentCost()} }`;
+        return `Resource: { Name: \"${this.name}\", Amount: ${this.amount}, Initial Cost: ${this.initialCost}, Current Cost: ${this.getCurrentCost()} }`;
     }
 }
