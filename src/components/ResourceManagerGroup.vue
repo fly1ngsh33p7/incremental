@@ -2,7 +2,7 @@
     <div id="resource-manager-group" class="container">
         <div class="heading">ResourceManagerGroup</div>
         <ResourceManager
-            v-for="resource in resourcesStore.getUnlockedResources"
+            v-for="resource in resourcesStore.getUnlockedResourcesByTaxonomy(resourceTaxonomy)"
             :key="resource.name"
             :resource="resource"
         />
@@ -10,6 +10,7 @@
 </template>
 
 <script lang="ts">
+    import { ResourceTaxonomy } from '@/Resource.ts';
     import { useResourcesStore } from '../stores/resources';
     import ResourceManager from './ResourceManager.vue';
 
@@ -21,6 +22,12 @@
             return {
                 resourcesStore,
             };
+        },
+        props: {
+            resourceTaxonomy: {
+                type: ResourceTaxonomy,
+                required: false,
+            }
         },
         components: {
             ResourceManager,

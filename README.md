@@ -51,8 +51,8 @@ npm run build
 <script>
     export default {
         name: 'Component',
-        mounted() {
-            // run on mount
+        setup() {
+            // run once on setup
             //afunction();
         },
         components: {

@@ -1,20 +1,20 @@
 <template>
     <div class="heading">Game</div>
-    <ResourceManagerGroup />
+    <ResourceManagerGroupWrapper />
 </template>
 
 <script lang="ts">
-    import ResourceManagerGroup from './components/ResourceManagerGroup.vue';
-
+    // es-lint-disable-next-line 
+    import ResourceManagerGroupWrapper from './components/ResourceManagerGroupWrapper.vue';
     export default {
-        name: 'Component',
+        name: 'Game',
         mounted() {
             // run on mount
             //afunction();
         },
         components: {
             // OtherComponent, // used components
-            ResourceManagerGroup,
+            ResourceManagerGroupWrapper,
         },
     };
 </script>
