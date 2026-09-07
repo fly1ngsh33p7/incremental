@@ -1880,3 +1880,17 @@ Möchtest du historische Ereignisse als Meilensteine einbauen?
 Soll ich dir Beispiel-Code für einen einfachen Technologiebaum zeigen?
 
 ```
+
+## Possible "Challenges"
+- maybe, they pop up sometimes 
+    - possibly when Earth in the simulation passes through a certain region, such as Perseides
+    - Full Moon, Solar Eclipse (the more (different?) sensors you have the more frequent they occur)
+    - a comet comes around every X years
+
+- you have to click on them to start, e.g. sensor: usually produces data continously, now "sensors" the challenge. If fast enough (there's a time-frame; might be extendable (the sensor at Lagrange Point X might be able to see it all the time, the earth-bound/earth-orbit sensors maybe not)), something is unlocked. If not, nothing is unlocked, the resources put into the challenge-try is lost.
+    - Possible Rewards for the sensor challenge:
+        - Opportunity to mine something
+        - Opportunity to do something special:
+            - Send a probe to e.g. a comet to gain a continous sensor-data production (unlimited time offer; costs regular Resources (maybe _really many_ Resources))
+        - permanent (flat/multiplicative) bonus to sensor-data-production
+        - getting Flat sensor-data amount

@@ -1,11 +1,14 @@
 <template>
     <div id="resource-manager-group-wrapper" class="container">
         <div class="heading">Resource Manager Group Wrapper</div>
-        <ResourceManagerGroup 
-            v-for="resourceTaxonomy in resourcesStore.getUnlockedResourceTaxonomyTypes()"
-            :key="resourceTaxonomy"
-            :resourceTaxonomy="resourceTaxonomy"
-        />
+        <div
+        v-for="resourceTaxonomy in resourcesStore.getUnlockedResourceTaxonomyTypes()"
+        :key="resourceTaxonomy"
+        class="container"
+        >
+            <div class="heading">{{ resourceTaxonomy }}</div>
+            <ResourceManagerGroup :resourceTaxonomy="resourceTaxonomy" />
+        </div>
     </div>
 </template>
 

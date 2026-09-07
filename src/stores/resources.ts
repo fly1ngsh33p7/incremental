@@ -45,6 +45,10 @@ export const useResourcesStore = defineStore('resources', () => {
             ),
             // ResourceTaxonomy.TECHNOLOGY
 
+            // ResourceTaxonomy.SENSOR
+            new Resource('Earth Sensor', ResourceTaxonomy.SENSOR, 0, 15, true),
+            new Resource('Space Sensor', ResourceTaxonomy.SENSOR, 0, 25, false),
+
         ];
     }
 
