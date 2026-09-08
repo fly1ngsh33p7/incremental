@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import { useResourcesStore } from '../stores/resources';
+    import { useResourcesStore } from '../../stores/resources.ts';
     import ResourceManagerGroup from './ResourceManagerGroup.vue';
 
     export default {

@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-    import { Resource } from '@/Resource';
+    import { Resource } from '@/classes/Resource';
     import { defineComponent } from 'vue';
 
     export default defineComponent({

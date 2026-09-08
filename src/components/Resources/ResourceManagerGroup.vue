@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts">
-    import { ResourceTaxonomy } from '@/Resource.ts';
-    import { useResourcesStore } from '../stores/resources';
+    import { ResourceTaxonomy } from '@/classes/Resource.ts';
+    import { useResourcesStore } from '../../stores/resources.ts';
     import ResourceManager from './ResourceManager.vue';
 
     export default {

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Resource, ResourceTaxonomy, type CostFunction } from '@/Resource';
+import { Resource, ResourceTaxonomy, type CostFunction } from '@/classes/Resource';
 import { ref } from 'vue';
 
 export const useResourcesStore = defineStore('resources', () => {

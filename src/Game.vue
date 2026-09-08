@@ -5,7 +5,7 @@
 
 <script lang="ts">
     // es-lint-disable-next-line 
-    import ResourceManagerGroupWrapper from './components/ResourceManagerGroupWrapper.vue';
+    import ResourceManagerGroupWrapper from './components/Resources/ResourceManagerGroupWrapper.vue';
     export default {
         name: 'Game',
         mounted() {
