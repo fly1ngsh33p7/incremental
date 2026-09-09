@@ -1,0 +1,20 @@
+[
+  {
+    "id": "metal",
+    "name": "Metall",
+    "description": "Grundlegende Ressource für den Bau von Infrastruktur.",
+    "baseValue": 1
+  },
+  {
+    "id": "energy",
+    "name": "Energie",
+    "description": "Energie für Produktionsanlagen.",
+    "baseValue": 2
+  },
+  {
+    "id": "asteroidMaterial",
+    "name": "Asteroiden-Material",
+    "description": "Rohstoffe aus Asteroiden.",
+    "baseValue": 5
+  }
+]

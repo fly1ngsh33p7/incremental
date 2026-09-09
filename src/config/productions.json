@@ -1,0 +1,28 @@
+[
+  {
+    "id": "miningStation",
+    "name": "Bergbaustation",
+    "description": "Sammelt Asteroiden-Material.",
+    "cost": [
+      { "resourceId": "metal", "amount": 10 },
+      { "resourceId": "energy", "amount": 5 }
+    ],
+    "productionTime": 10,
+    "output": [
+      { "resourceId": "asteroidMaterial", "amount": 1 }
+    ]
+  },
+  {
+    "id": "energyPlant",
+    "name": "Energieanlage",
+    "description": "Erzeugt Energie.",
+    "cost": [
+      { "resourceId": "metal", "amount": 8 },
+      { "resourceId": "asteroidMaterial", "amount": 3 }
+    ],
+    "productionTime": 15,
+    "output": [
+      { "resourceId": "energy", "amount": 2 }
+    ]
+  }
+]

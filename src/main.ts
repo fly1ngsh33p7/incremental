@@ -1,9 +1,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
-import Game from './Game.vue';
-import { useResourcesStore } from './stores/resources.ts';
-import { Resource, type CostFunction } from './Resource.ts';
+import Game from './components/Game.vue';
 
 const game = createApp(Game);
 

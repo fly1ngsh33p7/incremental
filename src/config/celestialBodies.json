@@ -1,0 +1,23 @@
+[
+  {
+    "id": "earth",
+    "name": "Erde",
+    "description": "Keine Ressourcen mehr verfügbar.",
+    "type": "planet",
+    "orbitalPeriod": 0
+  },
+  {
+    "id": "moon",
+    "name": "Mond",
+    "description": "Umlaufzeit: 27,3217 Tage.",
+    "type": "moon",
+    "orbitalPeriod": 27.3217
+  },
+  {
+    "id": "mars",
+    "name": "Mars",
+    "description": "Rote Planet mit Ressourcen.",
+    "type": "planet",
+    "orbitalPeriod": 686.98
+  }
+]
