@@ -6,7 +6,7 @@ const gameStore = useGameStore();
 
 <template>
   <div class="save-load">
-    <button @click="gameStore.saveGame()">Speichern</button>
+    <!-- <button @click="gameStore.saveGame()">Speichern</button> -->
     <button @click="gameStore.loadGame()">Laden</button>
   </div>
 </template>

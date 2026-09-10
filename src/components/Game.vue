@@ -2,8 +2,14 @@
     <div class="heading">Game</div>
     <div class="container">
         <div class="heading">Productions</div>
-        <ProductionButton productionId="production1" />
-        <ProductionButton productionId="production2" />
+        
+        <ProductionButton
+            v-for="production in productionStore.getAllProductions()"
+            :key="production.id"
+            :production="production"
+            :startProduction="() => productionStore.startProduction(production)"
+            :stopProduction="() => productionStore.stopProduction(production)"
+        />
         <TimeDisplay />
         <SaveLoad />
     </div>
@@ -16,18 +22,23 @@
     import { useGameStore } from '@/stores/gameStore.ts';
     import { useTimeStore } from '@/stores/timeStore.ts';
     import { useProductionStore } from '@/stores/productionStore.ts';
-
-        
-    const timeStore = useTimeStore();
-    const productionStore = useProductionStore();
-    const gameStore = useGameStore();
+    
 
     export default {
         name: 'Game',
-        mounted() {
+        setup() {
             // run on mount
-            //afunction();
+            const timeStore = useTimeStore();
+            const productionStore = useProductionStore();
+            const gameStore = useGameStore();
+
             gameStore.loadGame();
+
+            return {
+                timeStore,
+                productionStore,
+                gameStore,
+            };
 
         },
         components: {
@@ -48,16 +59,5 @@
         text-align: center;
         color: #2c3e50;
         margin-top: 60px;
-    }
-
-    .container {
-        border: 1px solid #000;
-        border-radius: 6px;
-        margin: 8px;
-    }
-
-    .heading {
-        font-weight: bold;
-        font-size: 1.2rem;
     }
 </style>

@@ -1,20 +1,23 @@
 <template>
     <div class="heading">ProductionButton</div>
   <div class="production-button container">
-    <template v-if="production">
+    <template v-if="production !== null">
         <h3>{{ production.name }}</h3>
         <p>{{ production.description }}</p>
-        <p>Kosten: {{ production.cost }}</p>
-        <p>Output: {{ production.output }}</p>
-        <p>Fortschritt: {{ (production.progress / production.productionTime) * 100 }}%</p>
+        <p><b>Kosten: </b>{{ production.cost }}</p>
+        <p><b>Output: </b>{{ production.output }}</p>
+        <p><b>Fortschritt: </b>{{ (production.progress / production.productionTime) * 100 }}%</p>
         <button
-        @click="startProduction"
-        :disabled="production.isBuilt || !gameStore.resources || gameStore.removeResources(production.cost)"
+            @click="startProduction(production)"
+            :disabled="production.isBuilt || !gameStore.availableResources || gameStore.removeResources(production.cost)"
         >
-        {{ production.isBuilt ? 'built' : 'buy' }}
+            {{ production.isBuilt ? 'built' : 'buy' }}
         </button>
-        <button @click="stopProduction" :disabled="!production.active">
-        Stoppen
+        <button @click="startProduction(production)" :disabled="production.active">
+            Start
+        </button>
+        <button @click="stopProduction(production)" :disabled="!production.active">
+            Stoppen
         </button>
     </template>
     <template v-if="!production">
@@ -24,27 +27,37 @@
 </template>
 
 
-<script setup lang="ts">
-import { useProductionStore } from '@/stores/productionStore';
-import { useGameStore } from '@/stores/gameStore';
-import { computed } from 'vue';
+<script lang="ts">
+    import { useGameStore } from '@/stores/gameStore';
 
-const productionStore = useProductionStore();
-const gameStore = useGameStore();
+    export default {
+        name: 'ProductionButton',
+        props: {
+            production: {
+                type: Object,
+                required: true,
+            },
+            startProduction: {
+                type: Function,
+                required: true,
+            },
+            stopProduction: {
+                type: Function,
+                required: true,
+            }
+        },
+        setup() {
+            // run on mount
+            const gameStore = useGameStore();
 
-const props = defineProps<{
-  productionId: string;
-}>();
-
-const production = computed(() => productionStore.productions[props.productionId]) ?? null;
-
-const startProduction = () => {
-  productionStore.startProduction(props.productionId);
-};
-
-const stopProduction = () => {
-  productionStore.stopProduction(props.productionId);
-};
+            return {
+                gameStore,
+            };
+        },
+        components: {
+            // OtherComponent, // used components
+        },
+    };
 </script>
 
 

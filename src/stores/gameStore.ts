@@ -1,24 +1,27 @@
-import type { ResourceAmountMap } from '@/types/gameTypes';
+import type { Production, ResourceAmount } from '@/types/gameTypes';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useGameStore = defineStore('game', () => {
-  const resources = ref<ResourceAmountMap>({});
+  const availableResources = ref<ResourceAmount[]>([]);
 
 
-  resources.value = {
-    'resource1': { resourceId: 'resource1', amount: 100 },
+  availableResources.value = [
+    { resource: { id: 'resource1', name: 'Resource 1', description: 'A simple resource', baseValue: 1 }, amount: 100 },
+    { resource: { id: 'resource2', name: 'Resource 2', description: 'Another simple resource', baseValue: 2 }, amount: 200 },
+  ];
 
   /**
    * Fügt Ressourcen hinzu.
    * @param resourceAmountMap Ressourcen und Mengen
    */
-  const addResources = (resourceAmountMap: ResourceAmountMap) => {
-    for (const [resourceAmountId, amount] of Object.entries(resourceAmountMap)) {
-      if (!resources.value[resourceAmountId]) {
-        resources.value[resourceAmountId] = { resourceId: resourceAmountId, amount: 0 };
-      } else {
-        resources.value[resourceAmountId].amount += amount.amount;
+  const addResources = (resourceAmounts: ResourceAmount[]) => {
+    for (const { resource, amount } of resourceAmounts) {
+      for (const resourceAmount of resourceAmounts) {
+        if (resourceAmount.resource.id === resource.id) {
+          resourceAmount.amount += amount;
+          return;
+        }
       }
     }
   };
@@ -28,22 +31,22 @@ export const useGameStore = defineStore('game', () => {
    * @param resourceAmountMap Ressourcen und Mengen
    * @returns true, wenn die Ressourcen erfolgreich entfernt wurden, sonst false
    */
-  const removeResources = (resourceAmountMap: ResourceAmountMap): boolean => {
-    const newResources: ResourceAmountMap = { ...resources.value };
+  const removeResources = (resourceAmounts: ResourceAmount[]): boolean => {
+    const newResources: ResourceAmount[] = [...availableResources.value ]; // copy value
 
-    for (const [resourceAmountId, amount] of Object.entries(resourceAmountMap)) {
-      if ((newResources[resourceAmountId] || 0) < amount) {
-        return false; // Nicht genug Ressourcen
-      }
-      
-      if (newResources[resourceAmountId] != null) {
-        newResources[resourceAmountId].amount -= amount.amount;
-      } else {
-        throw new Error(`Resource ${resourceAmountId} does not exist in the store.`);
+    for (const { resource, amount } of resourceAmounts) {
+      for (const resourceAmount of newResources) {
+        if (resourceAmount.resource.id === resource.id) {
+          if (resourceAmount.amount < amount) {
+            return false; // not enough ressources
+          }
+          resourceAmount.amount -= amount;
+          return true;
+        }
       }
     }
 
-    resources.value = newResources;
+    availableResources.value = newResources;
     return true;
   };
 
@@ -51,11 +54,16 @@ export const useGameStore = defineStore('game', () => {
    * Setzt alle Ressourcen zurück.
    */
   const resetResources = () => {
-    resources.value = {};
+    availableResources.value = [];
   };
 
-  // Spielstand in localStorage speichern
-  const saveGame = (resources, productions, gameTime) => {
+  /**
+   * Speichert den aktuellen Spielstand in localStorage.
+   * @param resources Die aktuellen Ressourcen
+   * @param productions Die aktuellen Produktionen
+   * @param gameTime Die aktuelle Spielzeit
+   */
+  const saveGame = (resources: ResourceAmount[], productions: Production[], gameTime: number) => {
     const state = {
       resources: resources,
       productions: productions,
@@ -71,9 +79,9 @@ export const useGameStore = defineStore('game', () => {
       const state = JSON.parse(saved);
 
       return {
-        resources: resources,
-        productions: productions,
-        gameTime: gameTime,
+        resources: state.resources,
+        productions: state.productions,
+        gameTime: state.gameTime,
       };
       // resources.value = state.resources;
       // productionStore.productions = state.productions;
@@ -81,15 +89,15 @@ export const useGameStore = defineStore('game', () => {
     } else {
       // new game
       return {
-        resources: {},
-        productions: {},
+        resources: [],
+        productions: [],
         gameTime: 0,
       };
     }
   };
 
   return {
-    resources,
+    availableResources,
     addResources,
     removeResources,
     resetResources,

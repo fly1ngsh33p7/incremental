@@ -1,10 +1,10 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
-import Game from './components/Game.vue';
+import App from './App.vue';
 
-const game = createApp(Game);
+const app = createApp(App);
 
-game.use(createPinia());
+app.use(createPinia());
 
-game.mount('#game');
+app.mount('#app');

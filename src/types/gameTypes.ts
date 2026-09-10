@@ -7,12 +7,9 @@ export interface Resource {
 }
 
 export interface ResourceAmount {
-  resourceId: string;
+  resource: Resource;
   amount: number;
 }
-
-export type ResourceAmountMap = Record<string, ResourceAmount>; // resourceAmountId, ResourceAmount
-
 
 // Production
 export interface Production {
@@ -26,9 +23,6 @@ export interface Production {
   progress: number; // Fortschritt (0-1)
   isBuilt: boolean; // Wurde die Produktion gebaut?
 }
-
-export type ProductionMap = Record<string, Production>; // productionId, Production
-
 
 
 // Celestial Body

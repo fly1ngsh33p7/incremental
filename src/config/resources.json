@@ -16,5 +16,11 @@
     "name": "Asteroiden-Material",
     "description": "Rohstoffe aus Asteroiden.",
     "baseValue": 5
+  },
+  {
+    "id": "sensorData",
+    "name": "Sensordaten",
+    "description": "Daten von Teleskopen und Sensoren.",
+    "baseValue": 1
   }
 ]

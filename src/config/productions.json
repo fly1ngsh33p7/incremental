@@ -10,7 +10,10 @@
     "productionTime": 10,
     "output": [
       { "resourceId": "asteroidMaterial", "amount": 1 }
-    ]
+    ],
+    "active": false,
+    "progress": 0,
+    "isBuilt": false
   },
   {
     "id": "energyPlant",
@@ -23,6 +26,24 @@
     "productionTime": 15,
     "output": [
       { "resourceId": "energy", "amount": 2 }
-    ]
+    ],
+    "active": false,
+    "progress": 0,
+    "isBuilt": false
+  },
+  {
+    "id": "telescope",
+    "name": "Teleskop",
+    "description": "Beobachtet den Weltraum.",
+    "cost": [
+      { "resourceId": "metal", "amount": 5 }
+    ],
+    "productionTime": 20,
+    "output": [
+      { "resourceId": "sensorData", "amount": 1 }
+    ],
+    "active": false,
+    "progress": 0,
+    "isBuilt": false
   }
 ]
